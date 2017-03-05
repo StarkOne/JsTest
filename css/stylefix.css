@@ -1,0 +1,11 @@
+.nav-fixed{
+	padding-top: 79px;
+}
+.fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #2c3039;
+	z-index: 200;
+}

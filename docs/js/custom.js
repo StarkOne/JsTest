@@ -8,8 +8,8 @@ $(function() {
     	}, 500);
     });
     //закрипляем меню при прокрутке
-    var headerH = $("#js-header").height(),                //высота
-    		navH = $("#js-nav-container").innerHeight();				// полная высота
+    var headerH = $("#js-header").height(),
+    		navH = $("#js-nav-container").innerHeight();
     $(document).on("scroll", function(){
     	var documentScroll = $(this).scrollTop();
     	if(documentScroll > headerH){
