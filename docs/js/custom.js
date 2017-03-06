@@ -8,8 +8,8 @@ $(function() {
     	}, 500);
     });
     //закрипляем меню при прокрутке
-    var headerH = $("#js-header").height(),
-    		navH = $("#js-nav-container").innerHeight();
+    var headerH = $("#js-header").height(),                //высота
+    		navH = $("#js-nav-container").innerHeight();				// полная высота
     $(document).on("scroll", function(){
     	var documentScroll = $(this).scrollTop();
     	if(documentScroll > headerH){
@@ -20,5 +20,15 @@ $(function() {
     		$("#js-header").removeAttr("style");
     	}
     });
-    //
+    // улучшиный скролл в меню до блока
+    $("#js-nav a").on("click", function(e){
+        e.preventDefault();
+        var currentBlock = $(this).attr("href"),
+            currentBlockOffset = $(currentBlock).offset().top;  // получаем число в пикселях от верха 
+
+        $("html, body").animate({
+            scrollTop: currentBlockOffset - 20
+        }, 500);
+
+    });
 });

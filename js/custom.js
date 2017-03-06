@@ -20,5 +20,15 @@ $(function() {
     		$("#js-header").removeAttr("style");
     	}
     });
-    //
+    // улучшиный скролл в меню до блока
+    $("#js-nav a").on("click", function(e){
+        e.preventDefault();
+        var currentBlock = $(this).attr("href"),
+            currentBlockOffset = $(currentBlock).offset().top;  // получаем число в пикселях от верха 
+
+        $("html, body").animate({
+            scrollTop: currentBlockOffset - 20
+        }, 500);
+
+    });
 });
