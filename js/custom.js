@@ -29,6 +29,19 @@ $(function() {
         $("html, body").animate({
             scrollTop: currentBlockOffset - 20
         }, 500);
+    });
+    //создания модальное окно
+    $(".js-show-modal").on("click", function(e){
+        e.preventDefault();
+        var currentModal = $(this).attr("href");
 
+        $(currentModal + ", #js-overlay").fadeIn(500);
+        $("body").addClass("open-modal");
+    });
+
+    $(".js-modal-close, #js-overlay").on("click", function(e){
+        e.preventDefault();
+        $(".js-modal, #js-overlay").fadeOut(100);
+        $("body").removeClass("open-modal");
     });
 });
