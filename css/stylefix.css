@@ -45,3 +45,6 @@
 	overflow: hidden;
 	padding-right: 15px;
 }
+.faq-content{
+    display: none;
+}
