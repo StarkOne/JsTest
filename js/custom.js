@@ -31,30 +31,30 @@ $(function() {
         }, 500);
     });
     //создания модальное окно
-    $(".js-show-modal").on("click", function(e){
-        e.preventDefault();
-        var currentModal = $(this).attr("href");
-
-        $(currentModal + ", #js-overlay").fadeIn(500);
-        $("body").addClass("open-modal");
-    });
-
-    $(".js-modal-close, #js-overlay").on("click", function(e){
-        e.preventDefault();
-        $(".js-modal, #js-overlay").fadeOut(100);
-        $("body").removeClass("open-modal");
-    });
-    //создание аккардиона
-    // $(".js-faq-title").on("click", function(e){
+    // $(".js-show-modal").on("click", function(e){
     //     e.preventDefault();
-    //     var $this = $(this);
-    //     if(!$this.hasClass("active")){
-    //         $(".js-faq-content").slideUp();
-    //         $(".js-faq-title").removeClass("active");
-    //     }
-    //     $this.toggleClass("active");
-    //     $this.next().slideToggle();
+    //     var currentModal = $(this).attr("href");
+
+    //     $(currentModal + ", #js-overlay").fadeIn(500);
+    //     $("body").addClass("open-modal");
     // });
+
+    // $(".js-modal-close, #js-overlay").on("click", function(e){
+    //     e.preventDefault();
+    //     $(".js-modal, #js-overlay").fadeOut(100);
+    //     $("body").removeClass("open-modal");
+    // });
+    //создание аккардиона
+    $(".js-faq-title").on("click", function(e){
+        e.preventDefault();
+        var $this = $(this);
+        if(!$this.hasClass("active")){
+            $(".js-faq-content").slideUp();
+            $(".js-faq-title").removeClass("active");
+        }
+        $this.toggleClass("active");
+        $this.next().slideToggle();
+    });
     // создание улучшенного аккардиона
     $(".js-faq-title").on("click", function(e){
         e.preventDefault();
@@ -78,4 +78,33 @@ $(function() {
     }, function(){   // происходить когда убран курсор мыши
          $(".js-popup").fadeOut();    
     });
+    //создание улучшеного модального окна
+  $(".js-show-modal").on("click", function(e) {
+
+        e.preventDefault();
+
+        var currentModal = $(this).attr("href");
+
+        $(currentModal).fadeIn(500);
+        $("body").append("<div class='overlay' id='js-overlay'></div>").addClass("open-modal");
+
+    });
+
+
+    $(".js-modal-close").on("click", function(e) {
+
+        e.preventDefault();
+        $(".js-modal").fadeOut(100);
+        $("body").removeClass("open-modal");
+        $("#js-overlay").remove();
+
+    });
+
+
+    $("body").on("click", "#js-overlay", function() {
+        $(".js-modal").fadeOut(100);
+        $("body").removeClass("open-modal");
+        $("#js-overlay").remove();
+    });
+
 });
