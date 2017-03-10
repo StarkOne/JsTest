@@ -68,4 +68,14 @@ $(function() {
         $this.toggleClass("active");
         $(answerId).slideToggle();
     }); 
+    // всплывающие тултитул
+    $(".js-popup-hover").hover(function(){
+        var $this = $(this),
+            popupId = $this.attr("href");
+
+        $(popupId).fadeIn();
+
+    }, function(){   // происходить когда убран курсор мыши
+         $(".js-popup").fadeOut();    
+    });
 });
