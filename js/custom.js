@@ -118,4 +118,22 @@ $(function() {
 
 		// var links = $("#js-nav").find("a"); //находим все ссылки в элементе 
 		// links.addClass("test");
+
+		// открытие и закрытия текста
+		$(".js-read-more").on("click",function(e){
+			e.preventDefault();
+
+			var $this = $(this),
+					text = $this.text(),
+					textId = $this.attr("href");
+
+			if(text == "Read More"){
+				$this.text("hide");
+			} else {
+				$this.text("Read More");
+			}
+
+			$(textId).toggleClass("hidden");
+
+		});
 });
