@@ -79,6 +79,15 @@ $(function() {
          $(".js-popup").fadeOut();    
     });
     //создание улучшеного модального окна
+
+  $(".js-modal").each(function(){
+    var modalWidth = $(this).innerWidth() / 2;
+
+    $(this).css({
+      "marginLeft" : "-" + modalWidth + "px"
+    });
+  });
+
   $(".js-show-modal").on("click", function(e) {
 
         e.preventDefault();
