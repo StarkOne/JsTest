@@ -136,4 +136,46 @@ $(function() {
 			$(textId).toggleClass("hidden");
 
 		});
+		//слайдер slick.js
+		$("#js-testimonials-slider").slick({
+		  infinite: true,
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
+		  arrows: false,
+		  dots: true,
+		  autoplay: true,
+ 			autoplaySpeed: 4000,
+ 			fade: false,
+  		cssEase: 'linear',
+		  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+
+  	]
+		});
+		$(".js-slider-prev").on("click", function(){
+			$("#js-testimonials-slider").slick("slickPrev");
+		});
+		$(".js-slider-next").on("click", function(){
+			$("#js-testimonials-slider").slick("slickNext");
+		});
 });
