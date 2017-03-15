@@ -195,4 +195,7 @@ $(function() {
 		  }
 		);
 		wow.init();
+		//ie8 плейсхолдер
+
+		$('input, textarea').placeholder();
 });
