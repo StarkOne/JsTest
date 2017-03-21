@@ -198,4 +198,14 @@ $(function() {
 		//ie8 плейсхолдер
 
 		$('input, textarea').placeholder();
+
+		//сделаем счётчик
+		$('.js-counter-comments').counterUp({
+			delay: 10,
+    	time: 1500
+		});
+		$('.js-counter-likes').counterUp({
+			delay: 10,
+    	time: 3000
+		});
 });
