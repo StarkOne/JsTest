@@ -138,44 +138,83 @@ $(function() {
 		});
 		//слайдер slick.js
 		$("#js-testimonials-slider").slick({
-		  infinite: true,
-		  slidesToShow: 1,
-		  slidesToScroll: 1,
-		  arrows: false,
-		  dots: true,
-		  autoplay: true,
- 			autoplaySpeed: 4000,
- 			fade: false,
-  		cssEase: 'linear',
-		  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		dots: true,
+		autoplay: true,
+		autoplaySpeed: 4000,
+		fade: false,
+		cssEase: 'linear',
+		responsive: [
+	{
+		breakpoint: 1024,
+		settings: {
+		slidesToShow: 3,
+		slidesToScroll: 3,
+		}
+	},
+	{
+		breakpoint: 600,
+		settings: {
+		slidesToShow: 2,
+		slidesToScroll: 2
+		}
+	},
+	{
+		breakpoint: 480,
+		settings: {
+		slidesToShow: 1,
+		slidesToScroll: 1
+		}
+	}
 
-  	]
+	]
 		});
 		$(".js-slider-prev").on("click", function(){
 			$("#js-testimonials-slider").slick("slickPrev");
 		});
 		$(".js-slider-next").on("click", function(){
 			$("#js-testimonials-slider").slick("slickNext");
+		});
+		//wow.js and animate
+
+		var wow = new WOW(
+		  {
+		    boxClass:     'wow',      // animated element css class (default is wow)
+		    animateClass: 'animated', // animation css class (default is animated)
+		    offset:       150,          // distance to the element when triggering the animation (default is 0)
+		    mobile:       false,       // trigger animations on mobile devices (default is true)
+		    live:         true,       // act on asynchronously loaded content (default is true)
+		    callback:     function(box) {
+		      // the callback is fired every time an animation is started
+		      // the argument that is passed in is the DOM node being animated
+		    },
+		    scrollContainer: null // optional scroll container selector, otherwise use window
+		  }
+		);
+		wow.init();
+		//ie8 плейсхолдер
+
+		$('input, textarea').placeholder();
+
+		//сделаем счётчик
+		$('.js-counter-comments').counterUp({
+			delay: 10,
+    		time: 1500
+		});
+		$('.js-counter-likes').counterUp({
+			delay: 10,
+    	time: 3000
+		});
+		// бегуший текст  https://github.com/mattboldt/typed.js
+		$(".js-typed").typed({
+			stringsElement: $("#typed-string"),
+			//strings: ["Strength in equality.The power of dreams", "Second sentence."],
+			typeSpeed: 40,
+			backSpeed: 0,
+			backDelay: 1000,
+			showCursor: true,
 		});
 });

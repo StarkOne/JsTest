@@ -202,10 +202,19 @@ $(function() {
 		//сделаем счётчик
 		$('.js-counter-comments').counterUp({
 			delay: 10,
-    	time: 1500
+    		time: 1500
 		});
 		$('.js-counter-likes').counterUp({
 			delay: 10,
     	time: 3000
+		});
+		// бегуший текст  https://github.com/mattboldt/typed.js
+		$(".js-typed").typed({
+			stringsElement: $("#typed-string"),
+			//strings: ["Strength in equality.The power of dreams", "Second sentence."],
+			typeSpeed: 40,
+			backSpeed: 0,
+			backDelay: 1000,
+			showCursor: true,
 		});
 });
